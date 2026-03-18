@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomzamo & Sipho Ndlovu - Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #8B4513;
+            --color-accent: #FFFFF0;
+            --color-highlight: #D4AF37;
+            --color-bg: #FFFFF0;
+            --color-text: #2C1810;
+            --color-text-light: #5A4A3A;
+            --color-primary-light: rgba(139, 69, 19, 0.1);
+            --color-highlight-light: rgba(212, 175, 55, 0.15);
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: clamp(4rem, 8vw, 7rem) 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--color-primary-light);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        .section:nth-child(8) { animation-delay: 0.7s; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #A0522D 100%);
+            color: var(--color-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q30,20 50,50 T90,50" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.3"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 7vw, 6rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2.2vw, 1.4rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Story Section */
+        .story-content {
+            display: grid;
+            gap: 3rem;
+            text-align: center;
+        }
+
+        /* Ceremony Section */
+        .ceremony-content {
+            background: var(--color-highlight-light);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-highlight);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-time {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Venue Section */
+        .venue-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid var(--color-highlight);
+        }
+
+        .venue-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .venue-address {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .dress-code {
+            background: var(--color-primary-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .dress-code h4 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Registry Section */
+        .registry-content {
+            background: var(--color-highlight-light);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: var(--color-primary);
+            color: var(--color-accent);
+        }
+
+        .rsvp h2 {
+            color: var(--color-accent);
+        }
+
+        .rsvp-content {
+            text-align: center;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 240, 0.1);
+            padding: 1rem 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 240, 0.2);
+        }
+
+        .countdown-number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+
+        .rsvp-deadline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-highlight);
+            color: var(--color-text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-highlight);
+            min-height: 48px;
+            min-width: 200px;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-highlight);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .btn-directions {
+            background: var(--color-primary);
+            color: var(--color-accent);
+            border-color: var(--color-primary);
+            margin-top: 1rem;
+        }
+
+        .btn-directions:hover {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-primary);
+            color: var(--color-accent);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-highlight), transparent);
+            margin: 3rem auto;
+            max-width: 200px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .countdown {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-tagline {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nomzamo & Sipho</h1>
+                <p class="hero-tagline">A celebration of love, tradition, and new beginnings<br>14 February 2027 • Umhlanga Rocks, KwaZulu-Natal</p>
+                <div class="hero-cta">
+                    <a href="#rsvp" class="btn btn-secondary">RSVP Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="story">
+            <div class="container">
+                <h2>Our Love Story</h2>
+                <div class="section-content">
+                    <div class="story-content">
+                        <p>Two hearts, one journey. A love that honors the past while embracing the future. Our story is one of deep connection, shared values, and the beautiful blending of tradition with modern love.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="ceremony">
+            <div class="container">
+                <h2>The Ceremony</h2>
+                <div class="section-content">
+                    <div class="ceremony-content">
+                        <p>Join us as we celebrate with both traditional Zulu customs including lobola and umabo, alongside our modern ceremony. A beautiful blend of heritage and contemporary love, honoring our ancestors while celebrating our future together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="schedule">
+            <div class="container">
+                <h2>Schedule of Events</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">2:00 PM</div>
+                        <h3>Traditional Ceremony & Modern Wedding</h3>
+                        <p>Join us for our beautiful ceremony blending Zulu traditions with modern vows at The Oyster Box Hotel. The celebration continues with reception to follow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="venue">
+            <div class="container">
+                <h2>Travel & Accommodation</h2>
+                <div class="section-content">
+                    <div class="venue-card">
+                        <h3 class="venue-name">The Oyster Box Hotel</h3>
+                        <p class="venue-address">2 Lighthouse Rd, Umhlanga Rocks, KwaZulu-Natal</p>
+                        <a href="https://maps.google.com/?q=The Oyster Box Hotel, 2 Lighthouse Rd, Umhlanga Rocks, KwaZulu-Natal" target="_blank" class="btn btn-directions">Get Directions</a>
+                        
+                        <div class="dress-code">
+                            <h4>Dress Code</h4>
+                            <p>Traditional attire and semi-formal. Guests are encouraged to wear traditional Zulu attire or smart traditional wear for the ceremony, and semi-formal attire for the reception.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="registry">
+            <div class="container">
+                <h2>Gift Registry</h2>
+                <div class="section-content">
+                    <div class="registry-content">
+                        <p>Your presence is the greatest gift we could ask for. For those who wish to honor us with a gift, we are deeply grateful for your love and generosity as we begin this new chapter together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section rsvp" id="rsvp">
+            <div class="container">
+                <h2>RSVP</h2>
+                <div class="rsvp-content">
+                    <p>Please join us in celebrating our special day. Your presence would make our celebration complete.</p>
+                    
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">--</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">--</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">--</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">--</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                    
+                    <p class="rsvp-deadline">Please RSVP by 15 January 2027</p>
+                    <a href="https://forms.gle/example-nomzamo-sipho" target="_blank" class="btn" aria-label="RSVP for Nomzamo and Sipho's wedding">RSVP Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="divider"></div>
+                <p>With love and gratitude<br><strong>Nomzamo & Sipho</strong><br>14 February 2027</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('2027-02-14T14:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
